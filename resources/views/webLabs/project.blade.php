@@ -38,8 +38,9 @@
                 <div class="col-lg-3">
                     <!-- search project -->
                     <div class="position-relative mb-5">
-                        <form method="GET">
-                            <input type="search" class="form-control rounded-0" placeholder="Axtar..." name="search">
+                        <form action="" id="formSubmit">
+                            @csrf
+                            <input type="search" class="form-control rounded-0" placeholder="Axtar..."  id=""  name="search"value="{{ $search }}">
                             <button type="submit" class="search-icon pr-3 r-0"><i class="fa-solid fa-magnifying-glass text-color"></i></button>
                         </form>
                     </div>
@@ -47,18 +48,13 @@
                     <div class="mb-30">
                         <h4 class="mb-3">Kateqoriya</h4>
                         <ul class="pl-0 shop-list list-unstyled">
+                            @foreach($categories as $category)
                             <li>
-                                <a href="allprojects.html" class="d-flex py-2 text-gray justify-content-between">
-                                    <span>All projects</span>
+                                <a  class="d-flex py-2 text-gray justify-content-between">
+                                    <span>{{ $category->name }}</span>
                                 </a>
                             </li>
-
-                            <li>
-                                <a href="categories/websaytlar.html" class="d-flex py-2 text-gray justify-content-between">
-                                    <span>Websaytlar</span>
-                                </a>
-                            </li>
-
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -66,14 +62,13 @@
                 <div class="col-lg-9">
                     <div class="row">
                         <!-- product -->
-
-
+                        @foreach($projects as $project)
                         <div class="col-lg-6 col-sm-6 mb-4">
                             <div class="product text-center">
                                 <div class="product-thumb">
                                     <div class="overflow-hidden position-relative">
-                                        <a href="product-single.html">
-                                            <img class="img-fluid w-100 mb-3 img-first" src="media/portfolio_images/Background_1.html"
+                                        <a href="{{$project->url }}" target="_blank">
+                                            <img class="img-fluid w-100 mb-3 img-first" src="{{ \Illuminate\Support\Facades\Storage::url($project->image) }}"
                                                  alt="product-img">
                                             <!-- <img class="img-fluid w-100 mb-3 img-second" src="/media/portfolio_images/Background_1.png" alt="product-img"> -->
                                         </a>
@@ -89,13 +84,13 @@
                                     </div>
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="h5"><a class="text-color" href="product-single.html">Gtib</a>
+                                    <h3 class="h5"><a class="text-color" target="_blank" href="{{ $project->url }}">{{ $project->title }}</a>
                                     </h3>
                                 </div>
 
                             </div>
                         </div>
-
+                        @endforeach
 
                         <!-- //end of product -->
 
@@ -128,4 +123,19 @@
     <!-- <script src="assets/js/popper.js"></script> -->
     <!-- <script src="assets/js/bootstrap.min.js"></script> -->
     <script src="{{ asset('webLabs/static/js/owl.carousel.min.js') }}"></script>
+    <script type="text/javascript">
+        $('#search').on('keyup', function() {
+            $value = $(this).val();
+            $.ajax({
+                type: 'get',
+                url: '{{ URL::to('search') }}',
+                data: {
+                    'search': $value
+                },
+                success: function(data) {
+                    $('tbody').html(data);
+                }
+            });
+        })
+    </script>
 @endsection

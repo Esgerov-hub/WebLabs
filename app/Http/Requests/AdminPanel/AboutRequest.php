@@ -24,9 +24,9 @@ class AboutRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'required|string|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
             'title' => 'required|string:100',
-            'text' => 'required|text'
+            'text' => 'required'
         ];
     }
 }

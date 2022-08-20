@@ -34,10 +34,10 @@
         <div class="container">
 
             <ol>
-                <li><a class="" href="index.html">Əsas səhifə</a></li>
-                <li>Saytların Hazırlanması</li>
+                <li><a class="" href="{{ route('webLabs.index') }}">Əsas səhifə</a></li>
+                <li>{!! $service->title !!}</li>
             </ol>
-            <h2>Saytların Hazırlanması</h2>
+            <h2>{!! $service->title !!}</h2>
 
         </div>
     </section><!-- End Breadcrumbs -->
@@ -49,42 +49,43 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-12">
-                        <div class="portfolio-description">
-                            <h4>Landing page(1-4 səhifəlik saytlar üçün nəzərdə tutulur)
-                            </h4>
-                            <ul>
-                                <li>Kiçik biznes sahibləri və öz işini göstərmək istəyən insanlar üçün nəzərdə tutulmuşdur.
-                                </li>
-                                <li>Tədbirlər üçün afişə səhifəsi olaraq</li>
-                                <li>Yeni məhsul üçün-kütləvi e-mail göndərişlərində ətraflı tanıtım məqsədilə.</li>
-                            </ul>
-                        </div>
-                        <div class="portfolio-description">
-                            <h4>Vizitka saytlar (əsasən məlumat xarakterli saytlar üçün nəzərdə tutur).
-                            </h4>
-                            <ul>
-                                <li>Kicik biznes sahibləri
-                                </li>
-                                <li>Fiziki şəxslər</li>
-                                <li>Startaplar</li>
-                            </ul>
-                        </div>
-                        <div class="portfolio-description">
-                            <h4>Korporativ saytlar</h4>
-                            <p>
-                                Korporativ şirkətlərin onlayn məkandakı magazini və ya mall u kimi görə bilərsiniz.
-                                Müştərilər burdan özlərinə lazım olanı alır.Korporativ saytlar şirkətin imici və
-                                prestiji üçün çox önəmli və böyük əhəmiyyət kəsb eliyir.
-                            </p>
-                        </div>
-                        <div class="portfolio-description">
-                            <h4>Promo saytlar</h4>
-                            <p>
-                                Bir fiziki və ya hüququ şəxsin öz məhsulu üçün yaratmış olduğu reklam saytıdır.
-                                Promo saytların əsas üstünlüyü şirkət haqqında ümumi məlumat,şirkətin məhsulunun reklamı və s. Kimi
-                                xüsusiyyətlər aiddir
-                            </p>
-                        </div>
+                        {!! $service->text !!}
+{{--                        <div class="portfolio-description">--}}
+{{--                            <h4>Landing page(1-4 səhifəlik saytlar üçün nəzərdə tutulur)--}}
+{{--                            </h4>--}}
+{{--                            <ul>--}}
+{{--                                <li>Kiçik biznes sahibləri və öz işini göstərmək istəyən insanlar üçün nəzərdə tutulmuşdur.--}}
+{{--                                </li>--}}
+{{--                                <li>Tədbirlər üçün afişə səhifəsi olaraq</li>--}}
+{{--                                <li>Yeni məhsul üçün-kütləvi e-mail göndərişlərində ətraflı tanıtım məqsədilə.</li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                        <div class="portfolio-description">--}}
+{{--                            <h4>Vizitka saytlar (əsasən məlumat xarakterli saytlar üçün nəzərdə tutur).--}}
+{{--                            </h4>--}}
+{{--                            <ul>--}}
+{{--                                <li>Kicik biznes sahibləri--}}
+{{--                                </li>--}}
+{{--                                <li>Fiziki şəxslər</li>--}}
+{{--                                <li>Startaplar</li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                        <div class="portfolio-description">--}}
+{{--                            <h4>Korporativ saytlar</h4>--}}
+{{--                            <p>--}}
+{{--                                Korporativ şirkətlərin onlayn məkandakı magazini və ya mall u kimi görə bilərsiniz.--}}
+{{--                                Müştərilər burdan özlərinə lazım olanı alır.Korporativ saytlar şirkətin imici və--}}
+{{--                                prestiji üçün çox önəmli və böyük əhəmiyyət kəsb eliyir.--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
+{{--                        <div class="portfolio-description">--}}
+{{--                            <h4>Promo saytlar</h4>--}}
+{{--                            <p>--}}
+{{--                                Bir fiziki və ya hüququ şəxsin öz məhsulu üçün yaratmış olduğu reklam saytıdır.--}}
+{{--                                Promo saytların əsas üstünlüyü şirkət haqqında ümumi məlumat,şirkətin məhsulunun reklamı və s. Kimi--}}
+{{--                                xüsusiyyətlər aiddir--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
                     </div>
 
                 </div>

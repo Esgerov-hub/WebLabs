@@ -36,29 +36,46 @@
             <div class="section-title">
                 <h2>Əlaqə</h2>
             </div>
+            @if(session()->has('messages'))
+                <div class="alert alert-success">
+                    {{ session()->get('messages') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}<br/>
+                    @endforeach
+                </div>
+            @endif
 
             <div class="contact-bg" style="background-image: url('{{asset('webLabs/static/img/contact-bg.png')}}')">
                 <div class="row col-center">
                     <div class="col-lg-7 mt-5 mt-lg-0 d-flex">
-                        <form method="POST" class="php-email-form">
+                        <form method="POST" action="{{ route('webLabs.contact.store') }}" class="php-email-form">
+                            @csrf
                             <input type="hidden" name="csrfmiddlewaretoken" value="pfDaVkLlyB7tXCw5Qlg04JvIhXeQ6JsYk6zpczNBgUd6uFMEF3QC5Hy7H5DBppYp">
                             <div class="row">
                                 <div class="form-group col-md-6 pb-3">
                                     <label for="name">Ad</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Ad.." required id="id_name">
+                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Ad.." required id="id_name">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="name">Soyad</label>
-                                    <input type="text" name="surname" class="form-control" placeholder="Soyad.." required id="id_surname">
+                                    <label for="surname">Soyad</label>
+                                    <input type="text" name="surname" value="{{ old('surname') }}" class="form-control @error('surname') is-invalid @enderror" placeholder="Soyad.." required id="id_surname">
                                 </div>
-                                <div class="form-group col-md-12 mt-3 mt-md-0">
-                                    <label for="name">E-ünvan</label>
-                                    <input type="email" name="email" class="form-control" placeholder="nümunə@gmail.com" required id="id_email">
+                                <div class="form-group col-md-6">
+                                    <label for="phone">Mobil nömrə</label>
+                                    <input type="text" name="phone" value="{{ old('phone') }}" class="form-control @error('phone') is-invalid @enderror" placeholder="nümunə: +994 ** *** ** **" required id="id_email">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">E-ünvan</label>
+                                    <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" placeholder="nümunə@gmail.com" required id="id_email">
                                 </div>
                             </div>
                             <div class="form-group mt-3">
-                                <label for="name">Mesaj</label>
-                                <textarea name="message" cols="40" rows="10" class="form-control" placeholder="Mesaj..." required id="id_message"></textarea>
+                                <label for="messages">Mesaj</label>
+                                <textarea name="messages" cols="40" rows="10" class="form-control @error('messages') is-invalid @enderror" placeholder="Mesaj..." required id="id_message">{{ old('messages') }}</textarea>
                             </div>
                             <div class="text-center pt-3 pb-3">
                                 <button type="submit" class="btn-get-started">Göndərin

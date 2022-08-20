@@ -68,42 +68,31 @@
                     </p>
                 </div>
                 <div class="row">
+                    @foreach($services as $service)
                     <div class="col-lg-4 mt-4 mt-lg-0 pb-4">
                         <div class="box" data-aos="fade-up" data-aos-delay="200">
-                            <img src="{{ asset('webLabs/static/img/services-1.png') }}" class="img-fluid" alt="">
-                            <h3><a href="saytlar%c4%b1n-haz%c4%b1rlanmas%c4%b1.html">Saytların Hazırlanması</a></h3>
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url($service->image) }}" class="img-fluid" alt="">
+                            <h3><a href="{{ route('webLabs.serviceDetails',$service->title) }}">{{ $service->title }}</a></h3>
                         </div>
                     </div>
+                    @endforeach
 
-                    <div class="col-lg-4 mt-4 mt-lg-0 pb-4">
-                        <div class="box" data-aos="fade-up" data-aos-delay="400">
-                            <img src="{{ asset('webLabs/static/img/services-3.png') }}" class="img-fluid" alt="">
-                            <h3><a href="texniki-d%c9%99st%c9%99k.html">Texniki Dəstək</a></h3>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0 pb-4">
-                        <div class="box" data-aos="fade-up" data-aos-delay="200">
-                            <img src="{{ asset('webLabs/static/img/services-4.png') }}" class="img-fluid" alt="">
-                            <h3><a href="seo-xidm%c9%99ti.html">Seo Xidməti</a></h3>
-                        </div>
-                    </div>
                 </div>
-                <div class="row col-center">
-                    <div class="col-lg-4 mt-4 mt-lg-0 pb-4">
-                        <div class="box" data-aos="fade-up" data-aos-delay="400">
-                            <img src="{{ asset('webLabs/static/img/services-5.png') }}" class="img-fluid" alt="">
-                            <h3><a href="dizayn-xidm%c9%99ti.html">Dizayn Xidməti</a></h3>
-                        </div>
-                    </div>
+{{--                <div class="row col-center">--}}
+{{--                    <div class="col-lg-4 mt-4 mt-lg-0 pb-4">--}}
+{{--                        <div class="box" data-aos="fade-up" data-aos-delay="400">--}}
+{{--                            <img src="{{ asset('webLabs/static/img/services-5.png') }}" class="img-fluid" alt="">--}}
+{{--                            <h3><a href="dizayn-xidm%c9%99ti.html">Dizayn Xidməti</a></h3>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="col-lg-4 mt-4 mt-lg-0 pb-4">
-                        <div class="box" data-aos="fade-up" data-aos-delay="600">
-                            <img src="{{ asset('webLabs/static/img/services-6.png') }}" class="img-fluid" alt="">
-                            <h3><a href="smm-xidm%c9%99ti.html">SMM Xidməti</a></h3>
-                        </div>
-                    </div>
-                </div>
+{{--                    <div class="col-lg-4 mt-4 mt-lg-0 pb-4">--}}
+{{--                        <div class="box" data-aos="fade-up" data-aos-delay="600">--}}
+{{--                            <img src="{{ asset('webLabs/static/img/services-6.png') }}" class="img-fluid" alt="">--}}
+{{--                            <h3><a href="smm-xidm%c9%99ti.html">SMM Xidməti</a></h3>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
 
             </div>

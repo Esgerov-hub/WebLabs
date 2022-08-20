@@ -35,22 +35,22 @@
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
+                @foreach($abouts as $about)
                 <div class="row gx-0">
 
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="content">
-                            <h3>Haqqımızda</h3>
-                            <p>
-                                Şirkət 19.04.2022-ci ildən fəaliyyətə başlamışdır. Bizim Fəaliyyətimiz peşəkar komandamızın yaradıclığı ilə öz müştərilərinə xidmət göstərməkdədir. İnkişaf etməkdə olan onlayn sektor hər brendin Veb səhifələrinin olmasına dəlalət yaradır. Bizim məqsədimiz müştərilərimizə ən keyfiyyətli məhsullar ilə ən qısa zaman da təmin etməkdir. Hər bir müştərimiz bizə loyal olmaqla,Biz də müştərilərimizə hər zaman loyallıqla yanaşaraq, eyni zamanda da təhlükəsiz məhsullar yaradaraq xidmət səviyyəmizi olduğumuz sektorda yüksəklərə qaldırmaqdayıq. İşiniz işimizdir.
-                            </p>
+                            <h3>{!! $about->title !!}</h3>
+                            <p>{!! $about->text !!}</p>
                         </div>
                     </div>
 
                     <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('webLabs/static/img/about.webp') }}" class="img-fluid rounded" alt="">
+                        <img src="{{ \Illuminate\Support\Facades\Storage::url($about->image) }}" class="img-fluid rounded" alt="">
                     </div>
 
                 </div>
+                @endforeach
             </div>
         </section><!-- End About Section -->
 

@@ -40,6 +40,7 @@ class AboutController extends Controller
      */
     public function store(AboutRequest $request)
     {
+//        dd($request->all());
         try {
             if($request->hasFile('image')){
                 $image = Storage::putFile('public/aboutImage',$request->file('image'));
@@ -88,8 +89,12 @@ class AboutController extends Controller
      * @param  \App\Models\About  $about
      * @return \Illuminate\Http\Response
      */
-    public function update(AboutRequest $request, About $about)
+    public function update(Request $request, About $about)
     {
+        $request->validate([
+            'title' => 'required|string:100',
+            'text' => 'required'
+        ]);
         try {
             if($request->hasFile('image')){
                 $image = Storage::putFile('public/aboutImage',$request->file('image'));;

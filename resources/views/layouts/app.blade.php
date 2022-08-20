@@ -18,7 +18,7 @@
 <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope-fill"></i><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="c7aea9a1a887b0a2a5aba6a5b4e9a6bd">info@weblabs.az</a>
+            <i class="bi bi-envelope-fill"></i><a href="mailto:infor@weblabs.az" class="__cf_email__" data-cfemail="c7aea9a1a887b0a2a5aba6a5b4e9a6bd">info@weblabs.az</a>
             <i class="bi bi-phone-fill phone-icon"></i> +994 50 875 69 17
         </div>
         <div class="social-links d-none d-md-block">
@@ -84,8 +84,8 @@
                 <div class="col-lg-2 col-6 footer-links">
                     <h4>SÜRƏTLİ KEÇİD</h4>
                     <ul>
-                        <li><i class="bi bi-chevron-right"></i> <a href="#">Web saytların hazırlanması</a></li>
-                        <li><i class="bi bi-chevron-right"></i> <a href="services.html">Xidmətlər</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('webLabs.project') }} }}">Projects</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="{{ route('webLabs.service') }}">Xidmətlər</a></li>
                     </ul>
                 </div>
 
@@ -102,7 +102,7 @@
                     <h4>Əlaqə</h4>
                     <p>
                         <i class="bi bi-phone-fill"></i> +994(50) 875-69-17<br>
-                        <i class="bi bi-envelope-fill"></i> <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="127b7c747d526577707e7370613c7368">[email&#160;protected]</a><br>
+                        <i class="bi bi-envelope-fill"></i> <a href="mailto:infor@weblabs.az" class="__cf_email__" data-cfemail="127b7c747d526577707e7370613c7368">info@weblabs.az</a><br>
                     </p>
 
                 </div>
