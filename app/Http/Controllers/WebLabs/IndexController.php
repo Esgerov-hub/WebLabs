@@ -10,6 +10,7 @@ use App\Models\Contact;
 use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -64,6 +65,22 @@ class IndexController extends Controller
             $contact->email = $request->email;
             $contact->messages = $request->messages;
             $contact->save();
+
+            Mail::send([], [],
+
+                function ($message) use ($request) {
+//                    $message->from('Weblabs', 'test');
+                    $message->to('info@weblabs.az');
+                    $message->setBody(
+                        "Soyad,Ad: " . $request->name .' '. $request->surname.
+                        "<br />Mobil: " . $request->phone .
+                        "<br />E-Poçt: " . $request->email .
+                        "<br />Mətn: " . " " . $request->messages . '', 'text/html');
+
+//                    dd($message);
+                    $message->subject($request->name .' '.$request->surname. ' ' . 'mesaj gonderdi!');
+                    return $message;
+                });
 
             return redirect()->back()->with('messages','Məlumatınız uğurla göndərildi!');
 
